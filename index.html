@@ -13,9 +13,9 @@
 </head>
 
 <body onload="registerHandlers()">
-    ​
+    
     <script>
-        ​
+        
         function paymentConfirmed(form, requestId) {
             console.log("1")
             var confirmation = {}
@@ -28,22 +28,22 @@
             console.log("5")
             LightspeedRestaurant.actions.confirmPayment(confirmation)
             console.log("6")
-        }​
+        }
         function paymentCanceled(requestId) {
             var cancelation = {}
             cancelation.requestId = requestId
             LightspeedRestaurant.actions.cancelPayment(cancelation)
-        }​
+        }
         function registerHandlers() {
             LightspeedRestaurant.callbacks.cancelPayment = function (context) {
                 var requestId = context.requestId
                 alert("Payment cancelled. Request Id = " + requestId);
-            }​
+            }
             LightspeedRestaurant.callbacks.startPayment = function (context) {
-                ​
+                
                 var requestId = context.requestId
                 var customer = context.customer
-                var receipt = context.receipt​
+                var receipt = context.receipt
                 var header = "<tr>" +
                     "<th>Amount</th>" +
                     "<th>Name</th>" +
@@ -54,7 +54,7 @@
                     "<th>parent UUID</th>" +
                     "<th>PLU</th>" +
                     "<th>ProductId</th>" +
-                    "</tr>"​
+                    "</tr>"
                 var rowsHTML = receipt.items.map(item =>
                         "<tr> <td>" +
                         item.amount +
@@ -77,7 +77,7 @@
                         "</td> </tr>"
                     )
                     .reduce((accumulator, value) => accumulator + value)​
-                var customerDetails = ""​
+                var customerDetails = ""
                 if (typeof customer !== 'undefined') {
                     customerDetails += ("<p>CustomerId # " + customer.customerId + "</p>" +
                         "<p>email " + customer.email + "</p>" +
@@ -119,16 +119,16 @@
                     "<input type=\"button\" name=\"cancel\" value=\"Cancel\" onClick=\"paymentCanceled('" +
                     requestId + "')\">" +
                     "</form>"
-            }​
+            }
         }
     </script>
-    ​
+    
     <h1>Test Page</h1>
 
     <p>Click the button to display an alert box.</p>
-    ​
+    
     <button onclick="myFunction()">Alert</button>
-    ​
+    
     <script>
         function myFunction() {
             alert("Hello! I am an alert box!");
@@ -136,11 +136,11 @@
     </script>
 
     <p>Click the button to display a confirm box.</p>
-    ​
+    
     <button onclick="confirmIt()">Confirm it</button>
-    ​
+    
     <p id="confirmResult"></p>
-    ​
+    
     <script>
         function confirmIt() {
             var r = confirm("Press a button!");
@@ -155,9 +155,9 @@
     <p>Click the button to display a prompt</p>
 
     <button onclick="promptIt()">Prompt</button>
-    ​
+    
     <p id="demo"></p>
-    ​
+    
     <script>
         function promptIt() {
             var person = prompt("Please enter your name", "Harry Potter");
@@ -167,7 +167,7 @@
             }
         }
     </script>
-    ​
+    
     <p id="request"></p>
 
 </body>
