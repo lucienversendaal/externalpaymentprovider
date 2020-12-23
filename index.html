@@ -76,7 +76,7 @@
                         item.productId +
                         "</td> </tr>"
                     )
-                    .reduce((accumulator, value) => accumulator + value)​
+                    .reduce((accumulator, value) => accumulator + value)
                 var customerDetails = ""
                 if (typeof customer !== 'undefined') {
                     customerDetails += ("<p>CustomerId # " + customer.customerId + "</p>" +
@@ -85,7 +85,7 @@
                         "<p>last " + customer.lastName + "</p>" +
                         "<p>phone " + customer.telephone + "</p>" +
                         "<br>")
-                }​
+                }
                 document.getElementById("request").innerHTML =
                     "<h1>Payment Request Details:</h1>" +
                     "<p>Request Id " + requestId + "</p>" +
